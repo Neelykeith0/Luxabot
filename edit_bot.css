@@ -1,0 +1,920 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Center the image horizontally and vertically */
+  min-height: 100%;
+  min-width: 100%;
+  /* Ensure the image covers the entire viewport */
+  background-image: url(pictures/background_lines.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* Auto-fit the image horizontally or vertically */
+  z-index: -1;
+}
+
+.logo {
+  cursor: pointer;
+  height: 48px;
+  width: 48px;
+  margin-top: auto;
+}
+
+.logo-text {
+  display: flex;
+  margin-left: 10px;
+  margin-right: auto;
+  font-size: 32px;
+  font-weight: 700;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+
+.navbar {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(248, 248, 247);
+  color: rgb(7, 0, 0);
+  padding: 20px;
+  /*   margin: 10px auto; */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  /* Ensure the navbar spans the full width */
+  z-index: 1;
+}
+
+
+.navbar-links {
+  display: flex;
+  height: 100%;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.navbar-links ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  font-family: 'roboto', sans-serif;
+}
+
+.navbar-links li {
+  list-style: none;
+}
+
+.navbar-links li a {
+  display: block;
+  text-decoration: none;
+  color: rgb(7, 0, 0);
+  padding: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.navbar-links ul li a {
+  padding: .7rem;
+  font-size: 1.2rem;
+}
+
+.navbar-links li:hover {
+  transform: scale(1.1);
+}
+
+.navbar-links.active {
+  display: flex;
+}
+
+.navbar-toggle-button {
+  display: none;
+  position: absolute;
+  top: .50rem;
+  right: 1rem;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  margin-top: 25px;
+}
+
+
+.navbar-toggle-button .bar {
+  height: 3px;
+  width: 100%;
+  background-color: rgb(10, 0, 0);
+  border-radius: 10px;
+  margin: 3px;
+  padding: 1px;
+
+}
+
+
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  /* Single column layout */
+  gap: 50px;
+
+}
+
+
+
+#sidebar {
+  width: 250px;
+  position: absolute;
+  background: linear-gradient(to bottom, #6e6c32 0%, #6c6a26 50%, #646221 100%);
+  /* This gradient gives a slight variation similar to what you might see on metal */
+  color: #fff;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+  top: 0;
+  left: -250px;
+  height: 100%;
+  transition: all 0.3s;
+  z-index: 1000;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-left: 1px solid #76752e;
+  border-top: 1px solid #76752e;
+  /* Adding a slight border to the top and left to enhance the metallic sheet effect */
+}
+
+
+
+.pushed-down {
+  top: 70px !important;
+  /* Adjust this based on your navbar height */
+  transition: top 0.3s ease;
+  margin-top: 100px;
+}
+
+#sidebar.active {
+  left: 0;
+}
+
+#sidebarToggle.active {
+  background-color: #fff;
+  left: 250px;
+}
+
+
+#sidebarToggle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 30px;
+  /* This will be the diameter of the cylinder */
+  background: linear-gradient(to right,
+      #c7c561 0%,
+      #ffffff 45%,
+      #c7c561 55%,
+      #c7c561 100%);
+  /* This gradient simulates light reflecting off a gold surface */
+  cursor: pointer;
+  z-index: 1001;
+  transition: left 0.3s ease;
+  text-align: center;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
+  /* This shadow gives depth inside the cylinder */
+}
+
+
+
+#sidebarToggle i {
+  font-size: 24px;
+  /* Adjust the size of the icon */
+  vertical-align: middle;
+  /* Center vertically */
+}
+
+
+#sidebar ul {
+  list-style: none;
+  /* Remove bullet points for sidebar links */
+}
+
+#sidebar a {
+  text-decoration: none;
+}
+
+
+
+#maincontent {
+  width: 80%;
+  margin-top: 10px;
+  margin-left: 50px;
+}
+
+.navbar2-links ul {
+  padding: 20px 0;
+  border-bottom: 1px solid #b4a983;
+  font-family: 'roboto', sans-serif;
+}
+
+.navbar2-links ul li a {
+  padding: 10px;
+  font-size: 1.1em;
+  display: block;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  /* add a bottom border */
+  line-height: 1.5;
+  /* increase line height */
+  font-family: 'roboto', sans-serif;
+}
+
+.navbar2-links ul li a:hover {
+  color: #b4a983;
+  background: #fff;
+  font-family: 'roboto', sans-serif;
+}
+
+.navbar2-links ul li.active>a,
+a[aria-expanded="true"] {
+  /*  color: #df1111; */
+  background: #b4a983;
+  font-family: 'roboto', sans-serif;
+}
+
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+form {
+  grid-gap: 10px;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+label {
+  font-weight: bold;
+}
+
+
+
+button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(183, 156, 4);
+}
+
+
+.field-box {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+
+
+
+/* .bot-info {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  text-align: left;
+  width: 100%;
+}
+
+
+.bot-info h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+} */
+
+.bot-info {
+  background-color: white;
+  /* Set the background color to white or any other color you prefer */
+  border: 1px solid #ccc;
+  /* Add a border for consistency */
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  /* Ensure the container spans the full width */
+  box-sizing: border-box;
+  /* Include padding and border in the width calculation */
+}
+
+.bot-info h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+  /* Set text color */
+}
+
+
+/* Styles for the edit bot form within the bot info container */
+.edit-bot-form {
+  margin-top: 20px;
+}
+
+/* Styles for the form labels within the bot info container */
+.edit-bot-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+
+
+
+.edit-button {
+  background-color: #b4a983;
+  width: 80px;
+  /* Fixed width */
+  height: 30px;
+  /* Fixed height, adjust as needed */
+  padding: 5px 10px;
+  /* Adjust padding if needed but maintain total dimensions */
+  white-space: nowrap;
+  /* Prevents text from wrapping */
+  overflow: hidden;
+  /* Hides any overflow */
+  text-overflow: ellipsis;
+  /* Adds an ellipsis if the text is too long */
+  margin-left: auto;
+  flex-shrink: 0
+}
+
+
+
+.field-container {
+  min-width: 300px;
+  box-sizing: border-box;
+  border: 1px solid #b4a983;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  /* Align items to the left */
+  align-items: center;
+
+}
+
+.field-container label {
+  order: 1;
+  /* Positions label first */
+
+}
+
+
+.field-container select {
+  order: 2;
+  /* Positions select (dropdown) second */
+  width: 120px;
+  /* Full width of its container */
+  height: 20px;
+
+}
+
+.field-container>div {
+  order: 1;
+  /* This will move the div (which contains the input field) to the first position */
+  margin-bottom: 2px;
+}
+
+.field-container button {
+  order: 3;
+  /* Positions button last */
+
+}
+
+#botContainer .field-container:nth-child(1) {
+  display: flex;
+  justify-content: flex-start;
+  /* Aligns content to the start (left) */
+  align-items: center;
+  /* Centers items vertically */
+}
+
+#botContainer .field-container:nth-child(1) label,
+#botContainer .field-container:nth-child(1) p {
+  margin-right: 10px;
+  /* Adjust space between label and paragraph */
+}
+
+.console {
+  width: 100%;
+  padding: 10px;
+  display: inline-block;
+
+}
+
+#consoleContainer {
+  max-height: 600px;
+  background-color: #f5f5f5;
+  overflow: auto;
+
+}
+
+.hidden {
+  display: none;
+}
+
+.console h3 {
+  margin-top: 0;
+  background-color: #f5f5f5;
+  /* Off-white background color */
+  padding: 5px;
+  /* Add some padding to give space */
+  border-radius: 0px;
+  /* Add rounded corners */
+}
+
+#consoleOutput {
+  height: 200px;
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+  padding: 5px;
+  background-color: #ffffff;
+}
+
+
+.performance-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #f5f5f5;
+  /* Off-white background color */
+  padding: 20px;
+  /* Add some padding to give space */
+  border-radius: 10px;
+  /* Add rounded corners */
+}
+
+.performance-header {
+  margin-bottom: 20px;
+}
+
+.graph-container {
+  width: 100%;
+  height: 400px;
+  background-color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#performanceChart {
+  display: block;
+  width: 100% !important;
+  height: auto;
+}
+
+
+.performance-metrics {
+  width: 100%;
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 10px;
+
+}
+
+
+.container {
+  flex-direction: column;
+
+  width: 90%;
+  font-family: 'Courgette', 'Inter', sans-serif;
+}
+
+
+
+.footer {
+  margin-top: auto;
+  background-color: rgb(248, 248, 247);
+  color: rgb(7, 0, 0);
+  padding: 1px 0;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: transform 0.3s ease-in-out;
+
+}
+
+
+.footer p {
+  margin-top: 0;
+}
+
+
+
+@media screen and (min-width: 320px) and (max-width: 320px) {
+
+
+  .navbar {
+    flex-wrap: wrap;
+    width: 335px;
+  }
+
+  .navbar .logo {
+    height: 3.0rem;
+    width: 3.0rem;
+  }
+
+  .navbar .logo-text {
+    flex: 1;
+    font-size: 2rem;
+  }
+
+  .navbar-toggle-button {
+    display: flex;
+    order: 2;
+  }
+
+  .navbar-links {
+    display: none;
+    width: 100%;
+    order: 3;
+  }
+
+  .navbar-links ul {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .navbar-links ul li {
+    text-align: center;
+  }
+
+  .navbar-links ul li a {
+    padding: .5rem 1rem;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .field-container {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: -4px;
+    width: 50px;
+    /* Adjust based on your layout, or use a specific width like 200px *
+    height: auto; /* Adjust as needed, or use a specific height like 50px */
+    padding: 5px;
+  }
+
+
+  .field-container label,
+  .field-container select,
+  .field-container input,
+  .field-container button {
+    font-size: 15px;
+    /* Smaller font size, adjust as needed */
+    height: auto;
+    /* Adjust as needed */
+    /* Other styles... */
+  }
+
+  #maincontent,
+  .wrapper,
+  .container {
+    width: 320px
+      /* or set a specific smaller width if necessary */
+      /* Other styles... */
+  }
+
+  .field-container label,
+  .field-container>div {
+    width: 100%;
+  }
+
+  .field-container label {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .bot-info {
+    width: 109%;
+    margin: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+}
+
+
+
+@media screen and (min-width: 321px) and (max-width: 480px) {
+
+  .navbar {
+    flex-wrap: wrap;
+  }
+
+  .navbar .logo {
+    height: 3.0rem;
+    width: 3.0rem;
+  }
+
+  .navbar .logo-text {
+    flex: 1;
+    font-size: 2rem;
+  }
+
+  .navbar-toggle-button {
+    display: flex;
+    order: 2;
+  }
+
+  .navbar-links {
+    display: none;
+    width: 100%;
+    order: 3;
+  }
+
+  .navbar-links ul {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .navbar-links ul li {
+    text-align: center;
+  }
+
+  .navbar-links ul li a {
+    padding: .5rem 1rem;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .field-container {
+    flex-direction: column;
+    /* Stack items vertically */
+    align-items: flex-start;
+  }
+
+  .field-container label,
+  .field-container>div {
+    width: 100%;
+    /* Full width */
+  }
+
+  .field-container label {
+    width: 100%;
+    /* Full width */
+    margin-bottom: 0.313rem;
+    /* Space between label and dropdown */
+  }
+
+  .bot-info {
+    width: 109%;
+    /* Take full width of the container */
+    margin: 0;
+    /* Remove any margin if present */
+    padding: 0.625rem;
+    /* Adjust padding as needed */
+    box-sizing: border-box;
+    /* Include padding and border in the width */
+  }
+
+}
+
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+  }
+
+  .navbar .logo {
+    height: 3.0rem;
+    width: 3.0rem;
+  }
+
+  .navbar .logo-text {
+    flex: 1;
+    font-size: 2rem;
+  }
+
+  .navbar-toggle-button {
+    display: flex;
+    order: 2;
+  }
+
+  .navbar-links {
+    display: none;
+    width: 100%;
+    order: 3;
+  }
+
+  .navbar-links ul {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .navbar-links ul li {
+    text-align: center;
+  }
+
+  .navbar-links ul li a {
+    padding: .5rem 1rem;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+
+}
+
+
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /*  .navbar {
+    flex-wrap: wrap;
+  }
+
+  .navbar .logo {
+    height: 3.0rem;
+    width: 3.0rem;
+  }
+
+  .navbar .logo-text {
+    flex: 1;
+    font-size: 2rem;
+  }
+
+  .navbar-toggle-button {
+    display: flex;
+    order: 2;
+  }
+
+  .navbar-links {
+    display: none;
+    width: 100%;
+    order: 3;
+  }
+
+  .navbar-links ul {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .navbar-links ul li {
+    text-align: center;
+  }
+
+  .navbar-links ul li a {
+    padding: .5rem 1rem;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  } */
+}
+
+
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+  /*  .navbar {
+    flex-wrap: wrap;
+  }
+
+  .navbar .logo {
+    height: 3.0rem;
+    width: 3.0rem;
+  }
+
+  .navbar .logo-text {
+    flex: 1;
+    font-size: 2rem;
+  }
+
+  .navbar-toggle-button {
+    display: flex;
+    order: 2;
+  }
+
+  .navbar-links {
+    display: none;
+    width: 100%;
+    order: 3;
+  }
+
+  .navbar-links ul {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .navbar-links ul li {
+    text-align: center;
+  }
+
+  .navbar-links ul li a {
+    padding: .5rem 1rem;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  } */
+}
+
+
+@media screen and (min-width: 1201px) {
+
+  /*    .navbar {
+    flex-wrap: wrap;
+  }
+
+  .navbar .logo {
+    height: 3.0rem;
+    width: 3.0rem;
+  }
+
+  .navbar .logo-text {
+    flex: 1;
+    font-size: 2rem;
+  }
+
+  .navbar-toggle-button {
+    display: flex;
+    order: 2;
+  }
+
+  .navbar-links {
+    display: none;
+    width: 100%;
+    order: 3;
+  }
+
+  .navbar-links ul {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .navbar-links ul li {
+    text-align: center;
+  }
+
+  .navbar-links ul li a {
+    padding: .5rem 1rem;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+
+  .save-button {
+    color: white; 
+    padding: 10px 15px; 
+    margin: 4px 2px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+}
+
+.cancel-button {
+    color: white; 
+    padding: 10px 15px; 
+    margin: 4px 2px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+}
+  */
+  .footer {
+    font-size: 1.1rem;
+  }
+}

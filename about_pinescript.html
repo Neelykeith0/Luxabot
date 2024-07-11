@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="about_about.css">
+  <script src="about_about.js" defer></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1591665674672955"
+     crossorigin="anonymous"></script>
+  <title>LUXABOT</title>
+</head>
+  <header>
+    <nav class="navbar">
+      <img class="logo" src="pictures/IMG_1181.png" alt="Logo">
+      <div class="logo-text">ABOUT LUXABOT</div>
+      <a href="#" class="navbar-toggle-button">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </a>
+      <div class="navbar-links">
+        <ul>
+          <li><a href="https://www.instagram.com/luxabot/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="createaccount.html">Create account</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+          <li><a href="terms.html" target="_blank">Legal</a></li>
+        </ul>
+      </div>
+    </nav> 
+
+    <!-- Ezoic - top_of_page_account_homepage - top_of_page -->
+    <div id="ezoic-pub-ad-placeholder-107"> </div>
+    <!-- End Ezoic - top_of_page_account_homepage - top_of_page -->
+    <div class="wrapper">
+      <div id="sidebarToggle" class="menu-icon">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+      <nav id="sidebar">
+        <div class="navbar2-links">
+          <ul>
+            <li><a href="about_about.html"></i>About Luxabot</a></li>
+            <li><a href="about_navigation.html"></i>Navigating Luxabot</a></li>
+            <li><a href="about_exchanges.html"></i>Our Exchanges</a></li>
+            <li><a href="about_api_connection.html"></i>API Connection</a></li>
+            <li><a href="about_cryptocurrency.html"></i>Cryptocurrency</a></li>
+            <li><a href="about_bots.html"></i>Bot Setup</a></li>
+            <li><a href="about_tradingview.html"></i>TradingView</a></li>
+            <li><a href="about_pinescript.html"></i>Pine Script</a></li>
+            <li><a href="about_auto_crypto_trading.html"></i>Automated Trading</a></li>
+            <li><a href="about_coins_for_trading.html">Recomended Coins For Auto Trading</a></li>
+            <li><a href="about_reading_price_charts.html">Reading Price Charts</a></li>
+            <li><a href="about_terms.html">Common Terms to Know</a></li>
+            <li><a href="about_fees.html">Fees and Where to Expect Them</a></li>
+            <li><a href="about_tokenomics.html">Tokenomics</a></li>
+            <li><a href="about_new_trader_help.html"></i>Helpful Guidelines for new Traders</a></li>
+          </ul>
+        </div>
+      </nav>
+  <main class="main-container">
+    <div class="main">
+      <h1>Pine Script</h1>
+      <p>Pine Script is the specialized scripting language created by <a href="about_tradingview.html" class="underline-link">TradingView</a>, a popular charting platform used by millions of traders. This language is specifically designed to meet the nuanced needs of traders and analysts, enabling them to write and customize their own indicators, studies, and even automated trading strategies. The conception of Pine Script is a game-changer as it democratizes the process of algorithmic trading, which was once the exclusive domain of those with advanced programming skills. Pine Script’s syntax and functions are straightforward and focused on trading concepts, which means that even individuals with minimal coding experience can develop and refine their trading strategies. This accessibility is revolutionary as it allows a much broader spectrum of traders to translate their analytical insights into actionable, programmable strategies that can be backtested, refined, and implemented directly within the TradingView platform.
+        <br>
+        <br>
+        <strong>
+        Developing Pine Script Trading Strategies with the help of AI:
+        </strong>
+        <br>
+        <br>
+        <p>Traders can employ a plethora of technical indicators such as Moving Averages, Bollinger Bands, RSI, MACD, and many others to build the foundation of their strategies. Pine Script supports a vast array of built-in indicators and also allows for the creation of custom indicators. If you're interested in creating a new script in Pine Script that you can use on Tradingview for signal generation, consider asking questions to Chat GPT or other AI chat sites such as:</p>
+        <br>
+        <code>
+          <p>"write a pinescript V5 script utilizing [Insert Strategy Here] to create 'strategy.entry' buy and 'strategy.exit' sell signals"</p>
+        </code>
+        <br>
+        <br>
+        <p>
+        <strong>
+        Using this question and substituting in 'RSI' generated the following pinescript code from Chat GPT:
+        </strong>
+        </p>
+        <br>
+        <br>
+        <pre>
+//@version=5
+strategy("RSI Strategy Example", overlay=true)
+
+// RSI settings
+rsiLength = input(14, title="RSI Length")
+overbought = input(70, title="Overbought Level")
+oversold = input(30, title="Oversold Level")
+
+// Calculate RSI
+rsi = ta.rsi(close, rsiLength)
+
+// Buy when RSI crosses above the oversold level
+longCondition = ta.crossover(rsi, oversold)
+if (longCondition)
+    strategy.entry("Long", strategy.long)
+
+// Sell when RSI crosses below the overbought level
+exitCondition = ta.crossunder(rsi, overbought)
+if (exitCondition)
+    strategy.close("Long")
+
+// Plotting
+plot(rsi, "RSI", color=color.blue)
+hline(overbought, "Overbought Level", color=color.red)
+hline(oversold, "Oversold Level", color=color.green)
+        </pre>
+        <br>  
+        <br>
+        note* for margin trading use the action <strong>'Long Entry'</strong>, <strong>'Long Exit'</strong>, <strong>'Short Entry'</strong>, and <strong>'Short Exit'</strong>. use <strong>'buy'</strong> and <strong>'sell'</strong> for non margin strategies. Use the same capitalisation format for each strategy.
+        <br>
+        <br>
+        <strong>
+        The following are further examples of technical analysis methods that can form the basis of trading stratagies:
+        </strong>
+        <br>
+        <br>
+        <i>Simple Moving Average (SMA):</i>
+            The Simple Moving Average is a widely used indicator that smooths out price data by creating a constantly updated average price. A common strategy is to look for crossovers between short-term and long-term SMAs to signal potential buy or sell opportunities.
+
+        <br>
+        <br>
+        <i>Exponential Moving Average (EMA):</i>
+            Similar to SMA, the Exponential Moving Average gives more weight to recent prices, making it more responsive to new information. EMA crossovers are often used to identify the start of a new trend.
+        <br>
+        <br>
+        <i>Relative Strength Index (RSI):</i>
+            RSI is a momentum oscillator that measures the speed and change of price movements. It oscillates between zero and 100 and is typically used to identify overbought (above 70) or oversold (below 30) conditions.
+        <br>
+        <br>
+        <i>MACD (Moving Average Convergence Divergence):</i>
+            This indicator shows the relationship between two moving averages of an asset's price. The MACD crossing above its signal line is a bullish signal, while crossing below is bearish.
+        <br>
+        <br>
+        <i>Support and Resistance Levels:</i>
+            Identifying key support and resistance levels where the price has historically bounced or reversed can be a simple yet effective strategy. Traders often buy near support levels and sell near resistance levels.
+        <br><br>
+
+        <i>Bollinger Bands:</i>
+            This tool consists of a set of three lines: the middle band is a moving average, and the other two are standard deviations away from the moving average. Trading strategies often involve buying when the price touches the lower band and selling when it reaches the upper band.
+        <br><br>
+
+        <i>Volume Analysis:</i>
+            Examining trading volume can provide insights into the strength or weakness of a price trend. An increasing volume on uptrends suggests strong buying interest, while high volume on downtrends might indicate selling pressure.
+        <br><br>
+
+        <i>Candlestick Patterns:</i>
+            Basic candlestick patterns like the bullish engulfing or bearish engulfing can signal trend reversals. These are often used in conjunction with other indicators for confirmation.
+        <br><br>
+      
+        <i>Moving Average Crossovers:</i>
+            A classic strategy where trades are triggered based on the crossover of two moving averages. It's a trend-following strategy often used to capture medium to long-term trends.
+        <br>
+        <br>
+        <i>Mean Reversion:</i>
+            Strategies based on the assumption that prices will revert to a mean or average level over time. Bollinger Bands and RSI are often used in crafting mean reversion strategies.
+        <br>
+        <br>
+        <i>Momentum Strategies:</i>
+            These strategies capitalize on market momentum, entering trades when a strong trend is identified and exiting when the momentum starts to wane.
+        <br>
+        <br>
+        The journey of developing trading strategies with Pine Script extends from a trader’s initial conceptualization of a strategy, through the coding and backtesting phase, and finally to the live deployment of the strategy in the market. The language’s ease of use, combined with its powerful functionality, makes it a favored tool among traders looking to automate their trading strategies.
+        <br>
+        <br>
+        By utilizing Pine Script, traders are not merely following the market; they are engaging with it, analyzing it, and crafting strategies that could potentially harvest profits from the perpetual ebbs and flows of the financial markets. The language serves as a conduit through which traders can interact with the markets on a more sophisticated and analytical level, ultimately elevating the trading experience to a realm of greater precision, insight, and potential profitability.
+</p>
+    </div>
+    <!-- Ezoic - bottom_of_page - bottom_of_page -->
+    <div id="ezoic-pub-ad-placeholder-104"> </div>
+    <!-- End Ezoic - bottom_of_page - bottom_of_page -->
+  </main>
+  <footer>
+    <div class="footer">
+      <p>&copy; 2023 Luxabot.com All rights reserved</p>
+  </footer>
+</body>
+
+</html>

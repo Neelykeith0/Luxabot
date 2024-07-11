@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="edit_bot.css">
+  <script src="edit_bot.js" defer></script>
+  <!--<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1591665674672955"
+     crossorigin="anonymous"></script>-->
+  <title>LUXABOT</title>
+</head>
+<header>
+  <nav class="navbar">
+    <img class="logo" src="pictures/IMG_1181.png" alt="Logo">
+    <div class="logo-text">LUXABOT</div>
+    <a href="#" class="navbar-toggle-button">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </a>
+    <div class="navbar-links">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="terms.html" target="_blank">Legal</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="wrapper">
+    <div id="sidebarToggle" class="menu-icon">
+      <i class="fas fa-arrow-right"></i>
+    </div>
+  </div>
+  <nav id="sidebar">
+    <div class="navbar2-links">
+      <ul>
+        <li><a href="#" onclick="backToMyBots()"><i class="fas fa-arrow-circle-left"></i> Back to My Bots</a></li>
+        <li id="deleteBotListItem">
+          <a href="#" id="deleteBotButton"><i class="fas fa-trash-alt"></i> Delete Bot</a>
+        </li>
+        <li><a href="#" onclick="navigateToSetUpBot()"><i class="fas fa-info-circle"></i> How to set up Bot</a></li>
+        <li><a href="python_webhook_code.html"><i class="fas fa-file-code"></i> Webhook Alternate Code</a></li>
+        <li class="logout"><a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<!-- Ezoic - top_of_page_edit_bot - top_of_page -->
+<div id="ezoic-pub-ad-placeholder-110"> </div>
+<!-- End Ezoic - top_of_page_edit_bot - top_of_page -->
+<div class="container">
+  <main>
+    <section id="editBot">
+      <div class="bot-info">
+        <h2>Bot Info</h2> <!-- Bot Info Title -->
+        <div class="edit-bot-form">
+          <form id="editBotForm">
+            <div id="botContainer">
+              <!-- Bot ID -->
+              <!--      <div class="bot-id-field">
+                <label for="botId">Bot ID</label>
+                <span id="botIdValue"></span>
+              </div> -->
+
+
+
+              <!-- Bot ID -->
+              <div id="botIdContainer" class="field-container field-box bot-info">
+                <span class="info-icon" title="Unique identifier for your bot."></span>
+                <label for="botId">Bot ID</label>
+                <p id="botIdValue" class="data-display"></p>
+                <!--<button type="button" class="edit-button">Edit</button>-->
+              </div>
+
+              <!-- Bot Name -->
+              <div class="field-container field-box">
+                <span class="info-icon"
+                  title="Enter a unique name for your bot. This name will be used to identify your bot on the 'My Bots' page."><i
+                    class="fas fa-info-circle"></i></span>
+                <label for="botName">Bot Name</label>
+                <span id="botNameDisplay" class="data-display"></span>
+                <button type="button" class="edit-button">Edit</button>
+              </div>
+
+              <!-- Exchange -->
+              <div class="field-container field-box">
+                <span class="info-icon"
+                  title="Select the cryptocurrency exchange where you want your bot to operate."><i
+                    class="fas fa-info-circle"></i></span>
+                <label for="exchange">Exchange</label>
+                <span id="exchangeDisplay" class="data-display"></span>
+                <button type="button" class="edit-button">Edit</button>
+              </div>
+
+              <!-- Crypto Pairing -->
+              <div class="field-container field-box">
+                <span class="info-icon"
+                  title="Specify the cryptocurrency your bot will trade. 'BTC/USD' is an example. Include a '/' to split the buy and sell currencies."><i
+                    class="fas fa-info-circle"></i></span>
+                <label for="cryptoPairing">Crypto Pairing</label>
+                <span id="cryptoPairingDisplay" class="data-display"></span>
+                <button type="button" class="edit-button">Edit</button>
+              </div>
+
+              <!-- Order Type -->
+              <div class="field-container field-box">
+                <span class="info-icon" title="Choose between Market and Limit orders."><i
+                    class="fas fa-info-circle"></i></span>
+                <label for="orderType">Order Type</label>
+                <span id="orderTypeDisplay" class="data-display"></span>
+                <button type="button" class="edit-button">Edit</button>
+              </div>
+
+              <!-- API Public Key -->
+              <div class="field-container field-box">
+                <span class="info-icon"
+                  title="Enter your API Public Key for webhook authentication. This can be found when you create your API access keys through the exchange website."><i
+                    class="fas fa-info-circle"></i></span>
+                <label for="apiPublicKey">API Public Key</label>
+                <p id="apiPublicKeyValue" class="data-display"></p>
+                <button type="button" class="edit-button">Edit</button>
+              </div>
+
+              <!-- API Private Key -->
+              <div class="field-container field-box">
+                <span class="info-icon"
+                  title="Enter your API Private Key for webhook authentication. This can be found when you create your API access keys through the exchange website."><i
+                    class="fas fa-info-circle"></i></span>
+                <label for="apiPrivateKey">API Private Key</label>
+                <p id="apiPrivateKeyValue" class="data-display"></p>
+                <button type="button" class="edit-button">Edit</button>
+              </div>
+
+              <!-- Secondary Authentication Password -->
+              <div class="field-container field-box">
+                <span class="info-icon" title="Enter your Secondary Authentication Password for the selected exchange.">
+                  <i class="fas fa-info-circle"></i>
+                </span>
+                <label for="secondaryAuthPassword">Secondary Authentication Password</label>
+                <p id="secondaryAuthPasswordValue" class="data-display"></p>
+                <button type="button" class="edit-button" onclick="editSecondaryAuthPassword()">Edit</button>
+                <div class="input-container hidden">
+                  <input type="password" id="secondaryAuthPassword" name="Secondary_auth_password" class="password-input">
+                  <i id="toggleSecondaryAuthPassword" class="fas fa-eye toggle-eye" onclick="toggleVisibility('secondaryAuthPassword', this)"></i>
+                </div>
+              </div>
+
+
+              <!-- Percent Equity -->
+              <div class="field-container field-box">
+                <span class="info-icon"
+                  title="The percentage of your total currency on that side of the pairing you desire to use per trade. If you are using a set static value for each trade do not fill this out."><i
+                    class="fas fa-info-circle"></i></span>
+                <label for="percentEquity">Percent Equity of Account to use Per Trade</label>
+                <p id="percentEquityValue" class="data-display"></p>
+                <button type="button" class="edit-button">Edit</button>
+              </div>
+
+              <!-- Static Currency Value -->
+              <div class="field-container field-box">
+                <span class="info-icon"
+                  title="A set amount of currency to use for each trade. If you are using a percent of the equity available for each trade do not fill this out."><i
+                    class="fas fa-info-circle"></i></span>
+                <label for="staticCurrencyValue">Static Trading Value to use Per Trade</label>
+                <p id="staticCurrencyValueValue" class="data-display"></p>
+                <button type="button" class="edit-button">Edit</button>
+              </div>
+
+              <!-- Starting Capital -->
+              <div class="field-container field-box">
+                <span class="info-icon" title="Enter the initial capital your bot will trade with."><i
+                    class="fas fa-info-circle"></i></span>
+                <label for="startingCapital">Starting Account Capital</label>
+                <p id="startingCapitalValue" class="data-display"></p>
+                <button type="button" class="edit-button">Edit</button>
+              </div>
+
+              <!-- Bot Status -->
+              <div class="field-container field-box">
+                <span class="info-icon" title="Turn your bot on or off."><i class="fas fa-info-circle"></i></span>
+                <label for="botStatus">Status</label>
+                <span id="botStatusDisplay" class="data-display"></span>
+                <button type="button" class="edit-button">Edit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+
+
+
+<!-- Ezoic - mid_content_edit_bot - mid_content -->
+<div id="ezoic-pub-ad-placeholder-112"> </div>
+<!-- End Ezoic - mid_content_edit_bot - mid_content -->
+<div class="container">
+  <div class="console">
+    <!-- Console content goes here -->
+  </div>
+  <div class="performance-container">
+    <h2>Bot Performance</h2>
+    <div class="performance-metrics">
+      <h3>Performance Metrics</h3>
+      <!-- Performance metrics will be populated here dynamically -->
+      <div class="graph-container">
+        <canvas id="performanceChart"></canvas>
+      </div>
+    </div>
+  </div>
+  <aside class="console">
+    <h3>Filled Orders</h3>
+    <div id="consoleOutput"></div>
+  </aside>
+</div>
+
+<!-- Ezoic - bottom_of_page_edit_bot - bottom_of_page -->
+<div id="ezoic-pub-ad-placeholder-111"> </div>
+<!-- End Ezoic - bottom_of_page_edit_bot - bottom_of_page -->
+
+<footer>
+  <div class="footer">
+    <p>&copy; 2023 Luxabot.com All rights reserved</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0/dist/chartjs-plugin-datalabels.min.js"></script>
+<script src="edit_bot.js"></script>
+</body>
+
+</html>

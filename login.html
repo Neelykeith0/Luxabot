@@ -1,41 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login.css">
-    <title>LUXABOT</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="login.js" defer></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1591665674672955"
+     crossorigin="anonymous"></script>
+  <title>LUXABOT</title>
 </head>
+
 <body>
   <header>
-     <img class="logo" src="/IMG_1181.png" alt="Logo"> 
-     <div class="logo-text">LUXABOT</div>  
-    <nav>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="#">Feedback</a></li>
-    </ul>
-  </nav>
-</header>
+    <nav class="navbar">
+      <img class="logo" src="pictures/IMG_1181.png" alt="Logo">
+      <div class="logo-text">LUXABOT</div>
+      <a href="#" class="toggle-button">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </a>
+      <div class="navbar-links">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+          <li><a href="terms.html" target="_blank">Legal</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <form class="login-form">
+      <h1>Login</h1>
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username" required>
 
-<main> 
-<form class="login-form">
-    <h1>Login</h1> 
-    <label for="username">Username</label>
-    <input type="text" id="username" name="username" placeholder="Enter your username" required>
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" placeholder="Enter your password" required>
-    <button type="submit">Login</button>
+      <label for="password">Password</label>
+      <div class="password-wrapper">
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        <i id="togglePassword" class="fas fa-eye"></i>
+      </div>
 
-<div class="signup-link">
-    <p>Don't have an account? <a href="createaccount.html">Sign up</a></p>
-</div>
-<div class="forgot-password">
-<a href="forgot_password.html">Forgot password?</a>
-</div>
-</form>
-</main>
+      <button type="submit">Login</button>
 
+      <div class="signup-link">
+        <p>Don't have an account? <a href="createaccount.html">Sign up</a></p>
+      </div>
+      <div class="forgot-password">
+        <a href="forgotpassword.html">Forgot password?</a>
+      </div>
+    </form>
+    <!-- Ezoic - sidebar_floating_1_login - sidebar_floating_1 -->
+    <div id="ezoic-pub-ad-placeholder-109"> </div>
+    <!-- End Ezoic - sidebar_floating_1_login - sidebar_floating_1 -->
+  </main>
+  <footer>
+    <div class="footer">
+      <p>&copy; 2023 Luxabot.com All rights reserved</p>
+  </footer>
 </body>
+
 </html>

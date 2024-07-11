@@ -4,10 +4,6 @@
   padding: 0;
 }
 
-
-
-
-
 body::before {
   content: "";
   position: fixed;
@@ -28,7 +24,6 @@ body::before {
 body {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   min-height: 100vh;
   font-family: 'Courgette', 'Inter', sans-serif;
   /* Include both font families here */
@@ -51,9 +46,6 @@ body {
 }
 
 
-
-
-
 .logo {
   cursor: pointer;
   height: 48px;
@@ -70,8 +62,6 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-
-
 .navbar {
   display: flex;
   position: relative;
@@ -83,13 +73,11 @@ body {
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-
-.nav-links {
+.navbar-links {
   display: flex;
   height: 100%;
   font-size: 20px;
   font-weight: 600;
-
 }
 
 .navbar-links ul {
@@ -101,7 +89,6 @@ body {
 
 .navbar-links li {
   list-style: none;
-
 }
 
 .navbar-links li a {
@@ -117,10 +104,8 @@ body {
   font-size: 1.2rem;
 }
 
-
 .navbar-links li:hover {
   transform: scale(1.1);
-
 }
 
 .toggle-button {
@@ -142,116 +127,96 @@ body {
   border-radius: 10px;
 }
 
-
-h1 {
-  color: #333;
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-
-
-.login-form {
+.form-container {
   display: flex;
-  flex-direction: column;
-  background-color: #fff;
-  margin: 6rem auto;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
-  max-width: 500px;
-
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 70px - 80px);
+  padding: 20px;
 }
 
-label {
-  font-size: 18px;
+#username-reset-form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+#username-reset-form h2 {
+  margin-bottom: 20px;
+}
+
+#username-reset-form p {
+  margin-bottom: 30px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
   margin-bottom: 5px;
 }
 
-input[type="text"],
-input[type="password"] {
-  border-radius: 5px;
-  border: none;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  padding: 10px;
+.input-group input {
   width: 100%;
-}
-
-input[type="text"]:focus,
-input[type="password"]:focus {
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-}
-
-button[type="submit"] {
-  background-color: #333;
-  border-radius: 5px;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 20px;
   padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #333;
 }
 
-button[type="submit"]:hover {
-  background-color: #222;
+#username-reset-form button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-.signup-link {
+#username-reset-form button:hover {
+  background-color: #555;
+}
+
+.return-to-my-bots {
   margin-top: 20px;
   text-align: center;
 }
 
-.forgot-password {
-  padding-top: 5px;
-  text-align: center;
-
-}
-
-a {
+.return-to-my-bots a {
+  text-decoration: none;
   color: #333;
   font-weight: bold;
-  text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
 }
 
-
-.password-wrapper {
-  position: relative;
-
-}
-
-.password-wrapper .fas {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  cursor: pointer;
-}
-
-
-
 .footer {
-  margin-top: auto;
   background-color: rgb(248, 248, 247);
   color: rgb(7, 0, 0);
   padding: 1px 0;
+  position: fixed;
+  /* Set the position to fixed */
+  bottom: 0;
+  /* Keep it at the bottom of the screen */
   width: 100%;
   text-align: center;
 }
 
-
-
 .footer p {
   margin-top: 0;
 }
-
 
 @media(max-width:767px) {
 
@@ -297,98 +262,175 @@ a:hover {
     display: flex;
   }
 
-  .login-form {
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
+  .main {
+    margin: 1.0rem;
+    padding: 1.0rem;
+    width: 100%;
+  }
+
+  .main h1 {
+    font-size: 2.7rem;
+  }
+
+  .main p {
+    font-size: 2.2rem;
+    text-align: left;
+  }
+
+  .main-container {
+    min-height: 100vh;
+  }
+
+
+  .tradingview-widget-container,
+  .main-container {
+    margin-bottom: 20px;
+  }
+
+
+  @media (max-width: 767px) {
+    .footer {
+      position: static;
+      /* Set the position back to static for mobile devices */
+    }
+  }
+
+
+  @media(min-width: 768px) and (max-width: 911px) {
+
+
+    .navbar .logo {
+      height: 3.0rem;
+      width: 3.0rem;
+    }
+
+
+    .navbar .logo-text {
+      font-size: 2rem;
+    }
+
+    .navbar-links ul li a {
+      padding: .7rem;
+      font-size: 1.2rem;
+    }
+
+    .main h1 {
+      font-size: 4.0rem;
+    }
+
+    .main p {
+      font-size: 2.0rem;
+      text-align: justify;
+    }
+
+    .main-container {
+      min-height: 10vh;
+
+    }
+
+
+    /*   .footer {
+    position: relative;
+
+  } */
+
   }
 
 
 
-}
+  @media screen and (min-width: 912px) and (max-width: 1368px) and (orientation: portrait) {
+
+    .navbar .logo {
+      height: 4.5rem;
+      width: 4.5rem;
+    }
 
 
-@media(min-width: 768px) and (max-width: 911px) {
+    .navbar .logo-text {
+      font-size: 2rem;
+    }
+
+    .navbar-links ul li a {
+      padding: .7rem;
+      font-size: 1.4rem;
+    }
+
+    .main h1 {
+      font-size: 5.0rem;
+    }
+
+    .main p {
+      font-size: 2.4rem;
+      text-align: justify;
+
+    }
 
 
-  .navbar .logo {
-    height: 3.0rem;
-    width: 3.0rem;
+    .main-container {
+      /* adjust the min-height property to increase the "height" of the content */
+      min-height: auto;
+      /* adjust as needed */
+      /*   padding-top: 15rem; */
+    }
+
+    .footer {
+      /*     position: sticky; */
+      font-size: 1.5rem;
+    }
   }
 
 
-  .navbar .logo-text {
-    font-size: 2rem;
-  }
-
-  .navbar-links ul li a {
-    padding: .7rem;
-    font-size: 1.2rem;
-  }
+  /* Styles for Galaxy Fold in folded mode */
+  @media screen and (min-width: 280px) and (max-width: 653px) {
+    .navbar .logo {
+      height: 3.0rem;
+      width: 3.0rem;
+    }
 
 
-}
+    .navbar .logo-text {
+      font-size: 1.6rem;
+    }
+
+    .navbar-links ul li a {
+      padding: .7rem;
+      font-size: 1.2rem;
+    }
+
+    .main h1 {
+      font-size: 1.8rem;
+    }
+
+    .main p {
+      font-size: 1.5rem;
+      text-align: left;
+    }
+
+    .main-container {
+      min-height: auto;
+    }
 
 
-
-
-@media screen and (min-width: 912px) and (max-width: 1368px) and (orientation: portrait) {
-
-  .navbar .logo {
-    height: 4.5rem;
-    width: 4.5rem;
-  }
-
-
-  .navbar .logo-text {
-    font-size: 2rem;
-  }
-
-  .navbar-links ul li a {
-    padding: .7rem;
-    font-size: 1.4rem;
-  }
-
-
-  .footer {
-    font-size: 1.5rem;
-
-  }
-}
-
-
-
-@media screen and (min-width: 280px) and (max-width: 653px) {
-  .navbar .logo {
-    height: 3.0rem;
-    width: 3.0rem;
+    .footer {
+      /*  position: relative; */
+      font-size: 1.0rem;
+    }
   }
 
 
-  .navbar .logo-text {
-    font-size: 1.6rem;
+  @media(min-width: 1369px) {
+
+    .main h1 {
+      font-size: 6.0rem;
+    }
+
+    .main p {
+      font-size: 2.8rem;
+      text-align: justify;
+    }
+
+    .footer {
+      /* position: relative; */
+      font-size: 1.1rem;
+    }
   }
-
-  .navbar-links ul li a {
-    padding: .7rem;
-    font-size: 1.2rem;
-  }
-
-
-
-  .footer {
-    font-size: 1.0rem;
-  }
-}
-
-
-@media(min-width: 1369px) {
-
-
-  .footer {
-    font-size: 1.1rem;
-
-  }
-
-
-}

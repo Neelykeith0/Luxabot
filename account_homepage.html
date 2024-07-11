@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="account_homepage.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1591665674672955"
+     crossorigin="anonymous"></script>
+  <script src="account_homepage.js" defer>
+    const createBotButton = document.getElementById('createBotButton');
+
+    if (createBotButton) {
+      createBotButton.addEventListener('click', handleCreateBotFormSubmit);
+    } else {
+      console.error("Create Bot Button not found");
+    }
+
+
+  </script>
+  <title>LUXABOT</title>
+</head>
+
+<body onload="showMyBots()">
+  <header>
+    <nav class="navbar">
+      <img class="logo" src="pictures/IMG_1181.png" alt="Logo">
+      <div class="logo-text">LUXABOT</div>
+      <a href="#" class="navbar-toggle-button">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </a>
+      <div class="navbar-links">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+          <li><a href="terms.html" target="_blank">Legal</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- Ezoic - top_of_page_account_homepage - top_of_page -->
+  <div id="ezoic-pub-ad-placeholder-107"> </div>
+  <!-- End Ezoic - top_of_page_account_homepage - top_of_page -->
+  <div class="wrapper">
+    <div id="sidebarToggle" class="menu-icon">
+      <i class="fas fa-arrow-right"></i>
+    </div>
+    <nav id="sidebar">
+      <div class="navbar2-links">
+        <ul>
+          <li><a href="#" onclick="showMyBots()"><i class="fas fa-robot"></i> My Bots</a></li>
+          <li><a href="#" id="createBotsTab" onclick="showCreateBot()"><i class="fas fa-plus-circle"></i> Create
+              Bots</a></li>
+          <li><a href="#" id="howtosetupBot" onclick="showHowToSetUpBot(); return false;"><i
+                class="fas fa-info-circle"></i> How to set up Bot</a></li>
+          <li><a href="python_webhook_code.html"><i class="fas fa-file-code"></i> Webhook Alternate Code</a></li>
+          <li><a href="resetusername.html"><i class="fas fa-user-circle"></i> Reset
+              Username</a></li>
+          <li><a href="resetpassword.html"><i class="fas fa-unlock"></i> Reset Password</a></li>
+          <li><a href="deleteaccount.html"><i class="fas fa-trash-alt"></i> Delete Account</a></li>
+          <li class="logout"><a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+    <main id="maincontent">
+      <!-- Ezoic - sidebar_middle - sidebar_middle -->
+      <div id="ezoic-pub-ad-placeholder-106"> </div>
+      <!-- End Ezoic - sidebar_middle - sidebar_middle -->
+      <section id="myBots">
+        <h1>My Bots</h1>
+        <div id="activeBots" class="bot-container">
+          <h3>Active Bots</h3>
+          <div id="activeBotsList">
+            <div class="bot-container">
+              <h3>Loading...</h3>
+              <!--<button class="edit-button" onclick="navigateToEditBot('<%= bot.bot_id %>')">EDIT</button>-->
+            </div>
+          </div>
+        </div>
+        <!-- Ezoic - sidebar_middle - sidebar_middle -->
+        <div id="ezoic-pub-ad-placeholder-106"> </div>
+        <!-- End Ezoic - sidebar_middle - sidebar_middle -->
+        <div id="inactiveBots" class="bot-container">
+          <h3>Inactive Bots</h3>
+          <div id="inactiveBotsList">
+            <div class="bot-container">
+              <h3>Loading...</h3>
+              <!--<button class="edit-button" onclick="navigateToEditBot('<%= bot.bot_id %>')">EDIT</button>-->
+            </div>
+          </div>
+        </div>
+        <!-- Ezoic - sidebar_middle - sidebar_middle -->
+        <div id="ezoic-pub-ad-placeholder-106"> </div>
+        <!-- End Ezoic - sidebar_middle - sidebar_middle -->
+      </section>
+      <!-- Ezoic - sidebar_middle - sidebar_middle -->
+      <div id="ezoic-pub-ad-placeholder-106"> </div>
+      <!-- End Ezoic - sidebar_middle - sidebar_middle -->
+      <section id="createBot" style="display: none;">
+        <h1>Create Bot</h1>
+        <div class="create-bot-form">
+          <form id="createBotForm">
+            <label for="botName">Bot Name
+              <span class="info-icon"
+                title="Enter a unique name for your bot. This name will be used to identify your bot on the 'My Bots' page.">
+                <i class="fas fa-info-circle"></i>
+              </span>
+            </label>
+            <input type="text" id="botName" name="botName">
+
+            <label for="exchange">Exchange
+              <span class="info-icon" title="Select the cryptocurrency exchange where you want your bot to operate.">
+                <i class="fas fa-info-circle"></i>
+              </span>
+            </label>
+            <select id="exchange" name="exchange">
+              <option value="BinanceUS">BinanceUS</option>
+              <option value="BitForex">BitForex</option>
+              <option value="Coinbase">Coinbase</option>
+              <option value="Coinmetro">Coinmetro</option>
+              <option value="Kraken">Kraken</option>             
+            </select>
+
+            <div id="marginField" style="display: none;">
+              <label for="margin">Margin
+                <span class="info-icon" title="Specify if you want to use margin for your trades.">
+                  <i class="fas fa-info-circle"></i>
+                </span>
+              </label>
+              <select id="margin" name="margin">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+
+            <label for="cryptoPairing">Crypto Pairing
+              <span class="info-icon"
+                title="Specify the cryptocurrency your your bot will trade. 'BTC/USD' is an example. Include a '/' to split the buy and sell currencies.">
+                <i class="fas fa-info-circle"></i>
+              </span>
+            </label>
+            <input type="text" id="cryptoPairing" name="cryptoPairing">
+
+            <label for="orderType">Order Type
+              <span class="info-icon" title="Chose between Market and Limit orders.">
+                <i class="fas fa-info-circle"></i>
+              </span>
+            </label>
+            <select id="orderType">
+              <option value="Market">Market</option>
+              <option value="Limit">Limit</option>
+            </select>
+
+            <!--       <label for="communicationSetup">Bot Communication Setup:</label>
+            <select id="communicationSetup">
+              <option value="email">Email</option>
+              <option value="webhook">Webhook</option>
+            </select>
+ -->
+            <div id="emailFields">
+              <input type="hidden" id="emailUserId" name="emailUserId">
+              <input type="hidden" id="emailPassword" name="emailPassword">
+            </div>
+
+            <div id="webhookFields">
+              <label for="apiPublicKey">API Public Key
+                <span class="info-icon"
+                  title="Enter your API Public Key for webhook authentication. This can be found when you create your API access keys through the exchange website.">
+                  <i class="fas fa-info-circle"></i>
+                </span>
+              </label>
+              <input type="text" id="apiPublicKey" name="apiPublicKey">
+
+              <div class="input-container">
+                <label for="apiPrivateKey">API Private Key
+                  <span class="info-icon"
+                    title="Enter your API Private Key for webhook authentication. This can be found when you create your API access keys through the exchange website.">
+                    <i class="fas fa-info-circle"></i>
+                  </span>
+                  <input type="password" id="apiPrivateKey" name="apiPrivateKey" class="password-input">
+                  <i id="toggleApiPrivateKey" class="fas fa-eye toggle-eye"></i>
+                </label>
+              </div>
+            </div>
+
+            <div id="secondaryAuthField" class="hidden">
+              <label for="secondaryAuthPassword">Secondary Authentication Password
+                <span class="info-icon" title="Enter your Secondary Authentication Password for the selected exchange. This field is for the exchanges that require an extra password for 3rd party access.">
+                  <i class="fas fa-info-circle"></i>
+                </span>
+              </label>
+              <div class="input-container">
+                <input type="password" id="secondaryAuthPassword" name="Secondary_auth_password" class="password-input">
+                <i id="toggleSecondaryAuthPassword" class="fas fa-eye toggle-eye"></i>
+              </div>
+            </div>
+
+
+
+            <div id="capitalManagementFields">
+              <label for="capitalManagement">
+                Capital Management
+                <span class="info-icon" title="Chose One:
+
+Equity Value: Percent of the total currency to use for each trade. This value should be between 0-100.
+
+Static Value: Amount of currency you want to trade with each signal generated.
+">
+                  <i class="fas fa-info-circle"></i>
+                </span>
+              </label>
+              <select id="capitalManagement" name="capitalManagement" onchange="handleCapitalManagementChange()">
+                <option value="equity">Equity</option>
+                <option value="staticValue">Static Value</option>
+              </select>
+            </div>
+
+            <div id="equityFields" style="display: none;">
+              <label for="equityValue">Equity Value</label>
+              <input type="text" id="equityValue" name="equityValue">
+            </div>
+
+            <div id="staticValueFields">
+              <label for="staticValue">Static Value</label>
+              <input type="text" id="staticValue" name="staticValue">
+            </div>
+
+
+            <label for="startingCapital">
+              Starting Capital
+              <span class="info-icon" title="Enter the initial capital your bot will trade with.">
+                <i class="fas fa-info-circle"></i>
+              </span>
+            </label>
+            <input type="text" id="startingCapital" name="startingCapital">
+
+
+            <button id="createBotButton" onclick="handleCreateBotFormSubmit(event);">Create Bot</button>
+            <!--<button id="createBotButton" onclick="handleRegisterBotFormSubmit(event);">Create Bot</button>-->
+
+          </form>
+        </div>
+      </section>
+      <!-- Ezoic - sidebar_middle - sidebar_middle -->
+      <div id="ezoic-pub-ad-placeholder-106"> </div>
+      <!-- End Ezoic - sidebar_middle - sidebar_middle -->
+      <section id="howToSetUpBot" style="display: none;">
+        <h1>How to Set Up Your Own Automated Crypto Trading Bot:</h1>
+        <p>Follow these instructions for filling out the <a href="#" id="createBotLink"
+            onclick="showCreateBot(); return false;" style="text-decoration: underline;">Create Bot</a> page to set up
+          your bot:</p>
+
+        <h2>Bot Name:</h2>
+        <p>Enter a unique name for your bot. This name will be used to identify your bot on the 'My Bots' page.</p>
+
+        <h2>Exchange:</h2>
+        <p>Select the cryptocurrency exchange where you want your bot to operate. Choose from options such as Binance
+          US, Coinbase, Kraken, BitForex, or Cointmetro. We will continue to add more exchanges.</p>
+
+        <h2>Margin:</h2>
+        <p>Cointmetro is currently the only exchange that offers margin trading of the five above. This is either 'Yes' or "No'."</p>
+
+        <h2>Crypto Pairing:</h2>
+        <p>Specify the cryptocurrency pairing you want your bot to trade. For example, you can enter "BTC/USD" to trade
+          Bitcoin against US Dollars. Ensure you have a '/' to split the buy and sell currencies, with no spaces
+          between.</p>
+
+        <h2>Order Type:</h2>
+        <p>Choose the order type for your bot's trades. You can select "Market" for market orders or "Limit" for limit
+          orders.</p>
+
+        <h2>Webhook Setup:</h2>
+        <p>For the Webhook setup we need the following keys. We do not recomend having withdrawl enabled with any keys
+          associated with Luxabot as we will never ask for money.:</p>
+        <ul>
+          <li>API Public Key: Enter your API public key. This can be found when you create your API access keys through
+            the exchange website. For more information on generating API keys consult the exchange documentation and
+            always review the associated risks.</li>
+          <li>API Private Key: Enter your API private key. This can be found when you create your API access keys
+            through the exchange website. For more information on generating API keys consult the exchange documentation
+            and always review the associated risks.</li>
+          <li>Secondary Authentication Password: Not all Exchanges require this. Enter your Secondary Authentication Password. This must be generated so that Luxabot can access your account. For more information on generating API keys consult the exchange documentation
+          and always review the associated risks.</li>
+        </ul>
+
+        <h2>Capital Management:</h2>
+        <p>Choose how you want to manage your bot's capital. You can select "Equity" which uses a percentage of the
+          accounts available currency you have previously defined. The other option is "Static Value" which is a set
+          trade amount of the defined currency.</p>
+
+        <h3>Equity:</h3>
+        <p>If you choose "Equity" capital management, provide the following information:</p>
+        <ul>
+          <li>Equity Value: Enter your desired equity value - the percent of currency available to use for each trade.
+            This value should be between 0-100. If the entered value is outside of this range the bot will generate an internal
+            error and be turned off.</li>
+        </ul>
+
+        <h3>Static Value:</h3>
+        <p>If you choose "Static Value" capital management, provide the following information:</p>
+        <ul>
+          <li>Static Value: Enter the static value of currency you want to allocate for your bot. This is a set currency
+            value that will be traded with each signal generated. If this value is greater than the funds available no
+            transaction will occur. Always verify proper liquidity values. It is recommended to have some currency on the side you are trading against, IE if you are trading BTCUSD keep a small amount of liquidity on the bitcoin side in case your buy trade does not go through at 100% of your static trade value. This ensures when your bot sells there is still enough to cover the static currency value entered for your bot to trade on the bot info page.</li>
+        </ul>
+
+        <h2>Starting Capital:</h2>
+        <p>Enter the initial capital. This allows the bot to show the user the estimated bot performance. This has no
+          connection to your exchange account, always verify user exchange account holdings on the exchange account.</p>
+        <!-- New Section: Setting Up Signals via Webhooks on TradingView -->
+        <div style="margin-top: 60px;"></div>
+
+        <h2>Setting Up Signals via Webhooks on TradingView:</h2>
+        <p>TradingView is a popular charting and trading platform that allows you to create custom trading strategies
+          and receive alerts. You can integrate your TradingView alerts with your bot by setting up webhooks. Here's
+          how:</p>
+
+        <h3>Step 1: Create a TradingView Alert</h3>
+        <p>In TradingView, create an alert based on your trading strategy. This alert should trigger when specific
+          conditions are met and give buy or sell signals.</p>
+
+        <h3>Step 2: Configure the Webhook</h3>
+        <p>Within your TradingView alert settings, configure the webhook action. Provide the following details:</p>
+        <ul>
+          <li><strong>URL:</strong> Enter the following webhook URL you want TradingView to send your alert to:
+            <strong>https://4yu94n013b.execute-api.us-east-2.amazonaws.com/Luxabot_Webhooks.</strong>
+          </li>
+          <li><strong>Message Body:</strong> Define the alert message structure. The following items must be included.
+            Bot ID is available on the bot info page of each bot. An example message body for setting up cumstom alerts
+            on Tradingview when trading BTC/USDT:</li>
+        </ul>
+        <pre>
+{
+  "bot_ID": "XxxxxxxxxxxxX",
+  "action": "{{strategy.order.action}}",
+  "pair": "BTC/USDT", 
+  "price": {{close}}
+}
+        </pre>
+        <p>Note: The bot_ID is the ID of the bot you want to set up the webhook on. for margin trading use the action <strong>'Long Entry'</strong>, <strong>'Long Exit'</strong>, <strong>'Short Entry'</strong>, and <strong>'Short Exit'</strong>. use <strong>'buy'</strong> and <strong>'sell'</strong> for non margin strategies. Use the same capitalisation format for each strategy. </p>
+
+        <h3>Step 3: Test the Alert</h3>
+        <p>Test your TradingView alert to ensure that it triggers correctly. When the alert conditions are met,
+          TradingView will send the JSON payload to the specified webhook URL.</p>
+
+        <h3>Step 4: Turn your Bot On!</h3>
+        <p>Go into the bot info and trigger the bot on/off setting to be on. By using Luxabot, you can automate your
+          trading strategy and execute orders promptly when your chosen
+          conditions are met.</p>
+
+
+      </section>
+      <!-- Ezoic - sidebar_middle - sidebar_middle -->
+      <div id="ezoic-pub-ad-placeholder-106"> </div>
+      <!-- End Ezoic - sidebar_middle - sidebar_middle -->
+    </main>
+  </div>
+  <!-- Ezoic - bottom_of_page_account_homepage - bottom_of_page -->
+  <div id="ezoic-pub-ad-placeholder-108"> </div>
+  <!-- End Ezoic - bottom_of_page_account_homepage - bottom_of_page -->
+  <br>
+  <br>
+  <footer>
+    <div class="footer">
+      <p>&copy; 2023 Luxabot.com All rights reserved</p>
+  </footer>
+</body>
+
+</html>

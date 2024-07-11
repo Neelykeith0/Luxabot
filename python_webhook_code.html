@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="python_webhook_code.css">
+  <script src="https://www.paypal.com/sdk/js?client-id=AVpOhAQnEO2C27bdk8xabtkMiGLeJvPrENAC1AFrFEbI-1bmf9FL-JOYT18OtRyOKE7SehXbAbjZZCy2&currency=USD&enable-funding=venmo"></script>
+  <!--above is real paypal / below is sandbox paypal-->
+  <!--<script src="https://www.paypal.com/sdk/js?client-id=AcIpijAfCVYJ_E7dhBjhCnuw9wBiaFyGt6Se0Kh9E33HsTJB7aw6oCRFCVIsWrFD_YkxOTNWVJ4pAHAb">  </script>-->
+  <script src="python_webhook_code.js" defer></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1591665674672955"
+     crossorigin="anonymous"></script>
+  <title>LUXABOT</title>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <img class="logo" src="pictures/IMG_1181.png" alt="Logo">
+      <div class="logo-text">LUXABOT</div>
+      <a href="#" class="navbar-toggle-button">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </a>
+      <div class="navbar-links">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+          <li><a href="terms.html" target="_blank">Legal</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Ezoic - top_of_page_account_homepage - top_of_page -->
+    <div id="ezoic-pub-ad-placeholder-107"> </div>
+    <!-- End Ezoic - top_of_page_account_homepage - top_of_page -->
+  </header>
+  <div class="wrapper">
+    <div id="sidebarToggle" class="menu-icon">
+      <i class="fas fa-arrow-right"></i>
+    </div>
+    <nav id="sidebar">
+      <div class="navbar2-links">
+        <ul>
+          <li><a href="#" onclick="backToMyBots()"><i class="fas fa-arrow-circle-left"></i> Back to My Bots</a></li>
+          <li><a href="#" onclick="navigateToSetUpBot()"><i class="fas fa-info-circle"></i> How to set up Bot</a></li>
+          <li class="logout"><a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <main class="main-container">
+    <div class="main">
+      <h1>ALTERNATE CODE TO TRADITIONAL WEBHOOKS</h1>
+      <p><p>Unlock the potential of Python with our innovative solution, an efficient alternative to traditional webhooks. This approach reduces the costs associated with standard webhook services. To ensure uninterrupted service, we recommend deploying this solution on an online hosting platform that offers always-on functionality such as Replit.com. Discover how you can optimize your processes with this smart and economical choice. Post Beta this will move to a $5 monthly subscription fee but if you buy before it will be half off ($2.50). This is not recomended if you are not familiar with Python. All sales final.</p>
+      <br>
+      <br>
+      
+      <p></p>Note: If you find this code elsewhere and use it your account will still not complete trades without buying it. This code is not required if traditional webhooks are used.</p>
+</p>
+  <!-- Paywall Section -->
+        <div id="paywall">
+          <p><strong>This content is protected. A payment of $7 is required to view the code.</strong></p>
+          <button onclick="unlockCode()" class="unlock-button">Unlock Code</button>
+        </div>
+
+        <!-- Code Block Section -->
+        <div class="code-container" style="display: none;" id="codeBlock">
+          <pre><code id="codeContent">
+          <!-- The code will be dynamically inserted here -->
+          </code></pre>
+          
+        </div>
+      </div>
+  </main>
+  <div id="paypalPopup" class="modal" style="display: none;">
+      <div class="modal-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <div id="paypal-button-container"></div> <!-- PayPal button will be rendered here -->
+      </div>
+  </div>
+  <br>
+  <br>
+  <footer>
+    <div class="footer">
+      <p>&copy; 2023 Luxabot.com All rights reserved</p>
+    </div>
+  </footer>
+</body>
+</html>

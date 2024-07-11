@@ -1,0 +1,691 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Center the image horizontally and vertically */
+  min-height: 100%;
+  min-width: 100%;
+  /* Ensure the image covers the entire viewport */
+  background-image: url(pictures/background_lines.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* Auto-fit the image horizontally or vertically */
+  z-index: -1;
+}
+
+.logo {
+  cursor: pointer;
+  height: 48px;
+  width: 48px;
+  margin-top: auto;
+}
+
+.logo-text {
+  display: flex;
+  margin-left: 10px;
+  margin-right: auto;
+  font-size: 32px;
+  font-weight: 700;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.navbar {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(248, 248, 247);
+  color: rgb(7, 0, 0);
+  padding: 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ddd;
+}
+
+.nav-links {
+  display: flex;
+  height: 100%;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.navbar-links ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  font-family: 'roboto', sans-serif;
+}
+
+.navbar-links li {
+  list-style: none;
+}
+
+.navbar-links li a {
+  display: block;
+  text-decoration: none;
+  color: rgb(7, 0, 0);
+  padding: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.navbar-links ul li a {
+  padding: .7rem;
+  font-size: 1.2rem;
+}
+
+.navbar-links li:hover {
+  transform: scale(1.1);
+}
+
+.navbar-links.active {
+  display: flex;
+}
+
+
+.navbar-toggle-button {
+  display: none;
+  position: absolute;
+  top: .50rem;
+  right: 1rem;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  margin-top: 25px;
+}
+
+
+.navbar-toggle-button .bar {
+  height: 3px;
+  width: 100%;
+  background-color: rgb(10, 0, 0);
+  border-radius: 10px;
+  margin: 3px;
+  padding: 1px;
+
+}
+
+
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 50px;
+
+}
+
+
+.container {
+  display: flex;
+}
+
+.tabs {
+  background-color: #f8f8f7;
+  width: 200px;
+  padding: 20px;
+}
+
+.tabs ul {
+  list-style: none;
+}
+
+.tabs li {
+  margin-bottom: 10px;
+}
+
+.main {
+  flex-grow: 1;
+  padding: 20px;
+  margin-left: 50px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.bot-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  /* Add this line */
+  margin-right: 10px;
+  /* Add this line */
+  color: black;
+  width: calc(100% - 20px);
+  /* Add this line */
+  box-sizing: border-box;
+}
+
+/* Default large size for larger screens */
+.bot-container .edit-button {
+  position: absolute;
+  /* Absolute positioning */
+  top: 10px;
+  /* Align to the top with margin */
+  right: 10px;
+  /* Align to the right with margin */
+  height: calc(100% - 20px);
+  /* Fill the height of the container with margin */
+  width: 120px;
+  /* Make the button wider */
+  font-size: 36px;
+  /* Make the text bigger */
+  background-color: blue;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.bot-container h2 {
+  font-size: 30px;
+  margin-bottom: 5px;
+  width: 100%;
+  /* Make the container fill the horizontal space */
+  text-align: left;
+  /* Align text to the left */
+}
+
+.bot-container p {
+  font-size: 24px;
+  margin-bottom: 5px;
+  width: 100%;
+  /* Make the container fill the horizontal space */
+  text-align: left;
+  /* Align text to the left */
+}
+
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 200px;
+  padding: 20px;
+}
+
+.buttons-container button {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+.buttons-container button:hover {
+  background-color: #222;
+}
+
+.activeBots,
+.inactiveBots {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+.inactive {
+  display: block;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.create-bot-form {
+  margin-top: 20px;
+}
+
+.create-bot-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.create-bot-form input,
+.create-bot-form select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.create-bot-form button[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.create-bot-form button[type="submit"]:hover {
+  background-color: #222;
+}
+
+#activeBots,
+#inactiveBots {
+  display: flex;
+  flex-direction: column;
+}
+
+#activeBots h3,
+#inactiveBots h3 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+#activeBotsList,
+#inactiveBotsList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Targeting the inner bot-containers specifically */
+#activeBotsList>.bot-container,
+#inactiveBotsList>.bot-container {
+  flex: 1;
+  width: calc(100% - 20px);
+  /* Adjust according to your needs */
+  max-width: 100%;
+  margin-right: 10px;
+  margin-left: 10px;
+  box-sizing: border-box;
+}
+
+
+#activeBotsList .bot-container:nth-child(3n),
+#inactiveBotsList .bot-container:nth-child(3n) {
+  margin-right: 0;
+}
+
+#myBots {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* Ensure the section takes up full width */
+  align-items: center;
+  /* Center the content horizontally */
+}
+
+#howToSetUpBot {
+  background-color: rgba(255, 255, 255, 0.9);
+  /* Off-white with transparency */
+  border-radius: 10px;
+  /* Rounded corners */
+  width: 90%;
+  /* Adjust the width as needed */
+  max-width: 800px;
+  /* Maximum width for larger screens */
+  margin: 0 auto;
+  /* Center the section horizontally */
+  padding: 20px;
+  /* Add some padding for content */
+}
+
+#createBot {
+  background-color: rgba(255, 255, 255, 0.9);
+  /* Off-white with transparency */
+  border-radius: 10px;
+  /* Rounded corners */
+  width: 90%;
+  /* Adjust the width as needed */
+  max-width: 800px;
+  /* Maximum width for larger screens */
+  margin: 0 auto;
+  /* Center the section horizontally */
+  padding: 20px;
+  /* Add some padding for content */
+}
+
+.container {
+  flex-wrap: wrap;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  background-color: rgb(0, 20, 60);
+  padding: 10px;
+}
+
+.tabs li {
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.tabs li a {
+  color: rgb(0, 191, 255);
+}
+
+
+a {
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+section {
+  max-width: 800px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* This ensures the content within the section stacks vertically */
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  /* This centers the section itself horizontally */
+}
+
+h1,
+h2,
+h3 {
+  color: #333;
+}
+
+h1 {
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-top: 30px;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+pre {
+  background-color: #f6f8fa;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+p,
+li {
+  line-height: 1.6;
+}
+
+
+
+
+.footer {
+  margin-top: auto;
+  background-color: rgb(248, 248, 247);
+  color: rgb(7, 0, 0);
+  padding: 1px 0;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: transform 0.3s ease-in-out; /* Add smooth transition */
+}
+
+
+.footer p {
+  margin-top: 0;
+}
+
+
+
+@media(max-width:767px) {
+
+  .navbar {
+    flex-wrap: wrap;
+  }
+
+  .navbar .logo {
+    height: 3.0rem;
+    width: 3.0rem;
+  }
+
+  .navbar .logo-text {
+    flex: 1;
+    font-size: 2rem;
+  }
+
+  .navbar-toggle-button {
+    display: flex;
+    order: 2;
+  }
+
+  .navbar-links {
+    display: none;
+    width: 100%;
+    order: 3;
+  }
+
+  .navbar-links ul {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .navbar-links ul li {
+    text-align: center;
+  }
+
+  .navbar-links ul li a {
+    padding: .5rem 1rem;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .bot-container .edit-button {
+    bottom: 1px;
+    right: 1px;
+    top: auto;
+    height: 10px;
+    width: 80px;
+    font-size: 16px;
+
+  }
+
+
+}
+
+
+@media(min-width: 768px) and (max-width: 911px) {
+
+
+  .navbar .logo {
+    height: 3.0rem;
+    width: 3.0rem;
+  }
+
+
+  .navbar .logo-text {
+    font-size: 2rem;
+  }
+
+  .navbar-links ul li a {
+    padding: .7rem;
+    font-size: 1.2rem;
+  }
+
+
+}
+
+
+
+@media screen and (min-width: 912px) and (max-width: 1368px) and (orientation: portrait) {
+
+  .navbar .logo {
+    height: 4.5rem;
+    width: 4.5rem;
+  }
+
+
+  .navbar .logo-text {
+    font-size: 2rem;
+  }
+
+  .navbar-links ul li a {
+    padding: .7rem;
+    font-size: 1.4rem;
+  }
+
+
+  .footer {
+    font-size: 1.5rem;
+  }
+}
+
+
+@media screen and (min-width: 280px) and (max-width: 653px) {
+
+  .navbar .logo {
+    height: 3.0rem;
+    width: 3.0rem;
+  }
+
+
+  .navbar .logo-text {
+    font-size: 1.6rem;
+  }
+
+  .navbar-links ul li a {
+    padding: .7rem;
+    font-size: 1.2rem;
+  }
+
+
+  .footer {
+    font-size: 1.0rem;
+  }
+}
+
+
+@media(min-width: 1369px) {
+
+  .footer {
+    font-size: 1.1rem;
+  }
+}
+
+/* Chat Container */
+#chat-container {
+  width: 350px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Chat Window */
+#chat-window {
+  height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px;
+  margin-bottom: 10px;
+  background: #fff;
+}
+
+/* User Input */
+#user-input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  flex-grow: 1;
+}
+
+/* Send Button */
+#send-button {
+  padding: 10px 20px;
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#send-button:hover {
+  background-color: #4cae4c;
+}
+
+/* Message styling */
+.bot-message,
+.user-message {
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+.bot-message {
+  background-color: #e6e6e6;
+  align-self: flex-start;
+}
+
+.user-message {
+  background-color: #007bff;
+  color: white;
+  align-self: flex-end;
+}
+
+/* Scrollbar styling for the chat window */
+#chat-window::-webkit-scrollbar {
+  width: 5px;
+}
+
+#chat-window::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+#chat-window::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+#chat-window::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Responsiveness - adjust the chat container width on smaller screens */
+@media (max-width: 400px) {
+  #chat-container {
+    width: 95%;
+  }
+}
